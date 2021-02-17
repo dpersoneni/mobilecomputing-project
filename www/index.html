@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+
+        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' data:;child-src * 'self' blob: http:; media-src *; img-src 'self' data: content:;style-src * 'unsafe-inline' blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+
+
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' data:; child-src * 'self' blob: http:; style-src * 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <script src="js/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="css/mapbox.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  
+    
+    <script src="js/jquery.min.js"></script>
+
+
+    <title>Hello World</title>
+</head>
+
+<body>
+   
+    <div id="wallpage">
+        <nav class="navbar navbar-dark ">
+            <span class="navbar-brand mb-0 h1" id="logo-left">Accordo</span>
+            <span><img src="img/user.png" alt="" id="openuserimage"></span>
+       <!--     <span><img src="img/plus.png" alt="" id="opensponsorpage"></span>   -->
+       <span><img src="img/plus.png" alt="" id="opencartacredito"></span>
+          </nav>
+    
+          <div style="height: 56px;"></div>
+      <img src="img/plus.png" class="floatbutton" alt="">
+          <div id="channels"></div>
+    </div>
+
+    <div id="channelpage" style="display: none;">
+        <nav class="navbar navbar-dark ">
+            <img src="img/back.png" alt="" class="backbutton1" >
+            <span class="navbar-brand mb-0 h1" id="logo-center"></span>
+          </nav>
+          <div style="height: 56px;"></div>
+          <div id="addpost">
+              <div id="addtextpost" >
+                <input type="text" id="texttosend" maxlength="100" placeholder="Write everything you want">
+                <button class='btn btn-primary' id="buttonaddtextpost"><i class='fas fa-paper-plane'></i></button>
+              </div>
+              <div id="addimagepost" >  
+                <button id="buttonopengallery"class='btn btn-primary'>Open gallery</button>
+                
+
+              </div>
+              <div id="addlocationpost"   >
+                <button id="buttonsaveposition" class='btn btn-primary'>Save location</button>
+              </div>
+
+              <div id="showaddimage" style="display: none;">
+                <img id="imagetosend" src="" alt="" >
+              </div>
+
+              <div id="showaddposition" style="display: none;">
+                <p id="positiontosend"></p>
+              </div>
+
+          </div>
+
+          <div id="posts"></div>
+
+    </div>
+
+    <div id="usersettingspage" style="display: none;">
+        <nav class="navbar navbar-dark ">
+            <img src="img/back.png" alt="" class="backbutton" >
+          </nav>
+          <div style="height: 56px;"></div>
+          <p id="provascritta"></p>
+          <div class="imageuserholder">
+              <img id ="pictureprofile" src="img/user.png" alt="">
+              <button type="button" class='btn btn-primary' id="buttonchangeimage">Change profile image</button>
+          </div>
+          <div class="usernameholder">
+            <input type="text" id="newnameprofile" maxlength="20" placeholder="User name">
+            <button type="button" class='btn btn-primary' id="buttonchangename">Change username </button>
+
+          </div>
+    </div>
+
+
+    <div id="sponsorpage" style="display: none;">
+      <nav class="navbar navbar-dark ">
+          <img src="img/back.png" alt="" class="backbutton2" >
+        </nav>
+        <div style="height: 56px;"></div>
+        <div id="sponsors"></div>
+  </div>
+
+  <div id="creditopage" style="display: none;">
+    <nav class="navbar navbar-dark ">
+        <img src="img/back.png" alt="" class="backbutton2" >
+      </nav>
+      <div style="height: 56px;"></div>
+      <div id="credito">
+        <input type="text" id="nome"  placeholder="Nome"><br>
+        <input type="text" id="cognome"  placeholder="Cognome"> <br>
+        <input type="number" id="numerocarta"  placeholder="Numero carta"><br>
+        <input type="number" id="mese" min="1" max="12" placeholder="Mese scadenza">
+        <input type="number" id="anno" min="2021" max="2040"  placeholder="Anno scadenza"><br>
+        <input type="number" id="codice" maxlength="999" placeholder="Codice"><br>
+
+        <button type="button" class='btn btn-primary' id="buttonaggiungicarta">Aggiungi carta</button>
+      </div>
+</div>
+
+  <div  id="fullsponsorpage" style="display: none;">
+    <nav class="navbar navbar-dark ">
+      <img src="img/back.png" alt="" class="backbutton" onclick="backbuttonfull()"> 
+    </nav>
+    <div style="height: 56px;"></div>
+      
+  </div>
+    <div id="createchannelpage" style="display: none;">
+        <nav class="navbar navbar-dark ">
+            <img src="img/back.png" alt="" class="backbutton">
+          </nav>
+          <div style="height: 56px;"></div>
+          <div id="descriptionchannel">
+            <p id="textcreatechannel">Create here a new awesome channel, you just have to think of a new title!</p>
+          </div>
+          <div class="newchanneltextholder">
+              <input type="text" placeholder="Channel name" maxlength="20" name="" id="newchannelname">
+              <button id="buttoncreatechannel" class=' btn-btnprimary'> Create new channel</button>
+          </div>
+          
+    </div>
+
+    <div  id="showlocationdiv" style="display: none;">
+      <nav class="navbar navbar-dark ">
+        <img src="img/back.png" alt="" class="backbutton">
+      </nav>
+      <div style="height: 56px;"></div>
+        <div id="map"></div>
+    </div>
+
+    <div  id="showimagediv" style="display: none;">
+      <nav class="navbar navbar-dark ">
+        <img src="img/back.png" alt="" class="backbutton">
+      </nav>
+      <div style="height: 56px;"></div>
+        <img id="imagetotalscreen" src="" alt="">
+    </div>
+
+    
+
+
+
+    <script src="cordova.js"></script>
+    <script src="js/post.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/communicationcontroller.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/fontawesome.js"></script>
+
+</body>
+
+</html>
