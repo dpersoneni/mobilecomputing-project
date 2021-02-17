@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    android:paddingHorizontal="10sp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/titleHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:paddingVertical="10sp"
+        android:singleLine="false"
+        android:soundEffectsEnabled="false"
+        android:text="TextView"
+        android:textAllCaps="false"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/mineHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#48FB06"
+        android:textSize="36sp"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+</LinearLayout>

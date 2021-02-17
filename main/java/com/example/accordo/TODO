@@ -1,0 +1,12 @@
+TODO
+GEstione lista post (getCurrentChanel nel model)
+Post type nel model in ShowPosts ChannelActivity
+gestire errore in caso non arrivi nessun canale
+
+aggiungere immagine default
+
+Cambiare toast colore
+
+
+
+Dopo creazione canale rifai richiesta per getWall
